@@ -1,0 +1,46 @@
+{
+  "name": "through2-sequence",
+  "version": "0.0.0",
+  "description": "Combine streams into a sequence where input is the first stream and output is the last.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "dependencies": {
+    "through2": "^0.4.1"
+  },
+  "devDependencies": {
+    "coveralls": "^2.10.0",
+    "chai": "^1.9.1",
+    "gulp-istanbul": "^0.2.0",
+    "gulp-mocha": "^0.4.1",
+    "gulp": "^3.7.0"
+  },
+  "scripts": {
+    "coveralls": "cat ./coverage/lcov.info | COVERALLS_SERVICE_NAME=\"travis-ci\" ./node_modules/.bin/coveralls",
+    "test": "./node_modules/.bin/gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jussi-kalliokoski/through2-sequence"
+  },
+  "keywords": [
+    "streams",
+    "through2",
+    "sequence",
+    "combine"
+  ],
+  "author": {
+    "name": "Jussi Kalliokoski",
+    "email": "jussi.kalliokoski@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jussi-kalliokoski/through2-sequence/issues"
+  },
+  "homepage": "https://github.com/jussi-kalliokoski/through2-sequence"
+}
