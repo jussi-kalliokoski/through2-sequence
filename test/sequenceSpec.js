@@ -65,6 +65,28 @@ describe("sequence", function () {
             input.emit("end");
         });
     });
+
+    it("should accept empty arrays and return noop streams", function (callback) {
+        var result;
+
+        var stream = sequence();
+
+        stream.on("data", function (data) {
+            result = data;
+        });
+
+        stream.on("end", function () {
+            result.toString().should.equal("foo");
+            callback();
+        });
+
+        var input = through();
+        input.pipe(stream);
+        input.write("foo");
+        setImmediate(function () {
+            input.emit("end");
+        });
+    });
 });
 
 describe("sequence.obj", function () {
@@ -135,6 +157,28 @@ describe("sequence.obj", function () {
         var input = through.obj();
         input.pipe(stream);
         input.write({});
+        setImmediate(function () {
+            input.emit("end");
+        });
+    });
+
+    it("should accept empty arrays and return noop streams", function (callback) {
+        var result;
+
+        var stream = sequence.obj();
+
+        stream.on("data", function (data) {
+            result = data;
+        });
+
+        stream.on("end", function () {
+            result.toString().should.equal("foo");
+            callback();
+        });
+
+        var input = through.obj();
+        input.pipe(stream);
+        input.write("foo");
         setImmediate(function () {
             input.emit("end");
         });
